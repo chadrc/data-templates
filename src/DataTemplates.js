@@ -34,7 +34,6 @@ class DataTemplates {
     static clone(name) {
         let template = DataTemplates.getTemplate(name);
         let clone = template.cloneNode(true);
-        console.dir(clone);
         return clone;
     }
 

@@ -20,7 +20,7 @@ describe("Templates", function () {
 
     describe("Clone inline template", function () {
         let clone = DataTemplates.clone("testTemplate");
-        console.log('clone:', clone);
+
         it(`Root element should be a 'div' element`, function () {
             expect(clone.children[0].tagName).to.deep.equal("DIV");
         });
@@ -36,7 +36,7 @@ describe("Templates", function () {
 
     describe("Clone imported template", function () {
         let clone = DataTemplates.clone("importTemplate");
-        console.log('clone:', clone);
+
         it(`Root element should be a 'div' element`, function () {
             expect(clone.tagName).to.deep.equal("DIV");
         });
