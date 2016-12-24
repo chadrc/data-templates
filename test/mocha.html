@@ -32,7 +32,11 @@
     // finishes loading at that time
     let callback = () => {
         jQuery.getScript("build/base-tests.js", function () {
-            mocha.run();
+            jQuery.getScript("build/inline-templates.js", function () {
+                jQuery.getScript("build/imported-templates.js", function () {
+                    mocha.run();
+                });
+            });
         });
     };
     if (DataTemplates.importsSupported) {
