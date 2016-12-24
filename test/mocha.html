@@ -3,8 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Data Templates Tests</title>
+    <script src="../node_modules/babel-polyfill/dist/polyfill.min.js"></script>
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="../node_modules/mocha/mocha.css" />
 </head>
 <body>
+<template data-template="testTemplate">
+    <div>
+        <p>Test Template</p>
+    </div>
+</template>
 <div id="mocha"></div>
 <script src="../node_modules/mocha/mocha.js"></script>
 <script src="../node_modules/chai/chai.js"></script>
@@ -13,8 +21,15 @@
     expect = chai.expect;
 </script>
 <script src="../dist/DataTemplates.js"></script>
+<!--<script src="build/base-tests.js"></script>-->
 <script>
-    mocha.run()
+    // Load scripts after window load because data templates
+    // finishes loading at that time
+    window.addEventListener('load', function () {
+        jQuery.getScript("build/base-tests.js", function () {
+            mocha.run();
+        });
+    });
 </script>
 </body>
 </html>

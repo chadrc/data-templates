@@ -9,7 +9,8 @@
     "minify": "babel dist/DataTemplates.js --out-file dist/DataTemplates.min.js --presets babili",
     "watch": "babel src --watch --out-file dist/DataTemplates.js --source-maps",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-tests": "babel test/src --out-dir test/build"
+    "build-tests": "babel test/src --out-dir test/build",
+    "watch-tests": "babel test/src --watch --out-dir test/build"
   },
   "keywords": [
     "library",
