@@ -5,16 +5,23 @@
 describe("Templates", function () {
 
     describe("Load inline template", function () {
-       let template = DataTemplates.getTemplate("testTemplate");
-       it(`Template in mocha.html should have been loaded and stored.`, function () {
-           expect(template).to.exist;
-       });
+        let template = DataTemplates.getTemplate("testTemplate");
+        it(`Template in mocha.html should have been loaded and stored.`, function () {
+            expect(template).to.exist;
+        });
     });
 
     describe("Load html import template", function () {
-       let template = DataTemplates.getTemplate("importTemplate");
+        let template = DataTemplates.getTemplate("importTemplate");
         it(`HTML import template in mocha.html should have been loaded and stored.`, function () {
             expect(template).to.exist;
+        });
+    });
+
+    describe("Get non-existent template", function () {
+        let template = DataTemplates.getTemplate("non-existent-template");
+        it(`Retrieved template should not exists`, function () {
+            expect(template).to.not.exist;
         });
     });
 
@@ -57,4 +64,11 @@ describe("Templates", function () {
             expect(clone.children[1].innerHTML).to.deep.equal("This template was loaded as an html import.");
         });
     });
+
+    describe("Clone non-existent template", function () {
+        let clone = DataTemplates.clone("non-existent-template");
+        it(`Clone should not exist`, function () {
+            expect(clone).to.not.exist;
+        })
+    })
 });

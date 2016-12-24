@@ -33,8 +33,7 @@ class DataTemplates {
 
     static clone(name) {
         let template = DataTemplates.getTemplate(name);
-        let clone = template.cloneNode(true);
-        return clone;
+        return template ? template.cloneNode(true) : null;
     }
 
     static get importsSupported() {
