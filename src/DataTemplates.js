@@ -23,14 +23,19 @@ class DataTemplates {
             DataTemplates.store.push(temp.import);
             let name = temp.dataset.template;
             if (name) {
-                DataTemplates.store[name] = temp.import;
+                if (temp.import) {
+                    // Get child of html element that was generated for the template
+                    DataTemplates.store[name] = temp.import.body.children[0];
+                }
             }
         }
     }
 
     static clone(name) {
         let template = DataTemplates.getTemplate(name);
-        return template.cloneNode(true);
+        let clone = template.cloneNode(true);
+        console.dir(clone);
+        return clone;
     }
 
     static get importsSupported() {
