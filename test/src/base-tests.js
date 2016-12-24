@@ -72,7 +72,7 @@ describe("Templates", function () {
         });
     });
 
-    describe("Loading nested templates", function () {
+    describe("Loading nested inline templates", function () {
         let template = DataTemplates.getTemplate("parentTemplate");
         let childTemp = DataTemplates.getTemplate("childTemplate");
         it(`'parentTemplate' should have been loaded`, function () {
@@ -82,5 +82,25 @@ describe("Templates", function () {
         it(`'childTemplate' should have been loaded`, function () {
             expect(childTemp).to.exist;
         });
+    });
+
+    describe("Cloning nested inline templates", function () {
+        let parentClone = DataTemplates.clone("parentTemplate");
+        let childClone = DataTemplates.clone("childTemplate");
+        it(`parent root element should be a 'ul'`, function () {
+            expect(parentClone.children[0].tagName).to.deep.equal("UL");
+        });
+
+        it(`parent child element should be a 'template'`, function () {
+            expect(parentClone.children[0].children[0].tagName).to.deep.equal("TEMPLATE");
+        });
+
+        it(`child root element should be a 'li'`, function () {
+            expect(childClone.children[0].tagName).to.deep.equal("LI");
+        });
+
+        it(`child root element's innerHTML should equal 'Child Item'`, function () {
+            expect(childClone.children[0].innerHTML).to.deep.equal("Child Item");
+        })
     });
 });
