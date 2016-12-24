@@ -69,6 +69,18 @@ describe("Templates", function () {
         let clone = DataTemplates.clone("non-existent-template");
         it(`Clone should not exist`, function () {
             expect(clone).to.not.exist;
-        })
-    })
+        });
+    });
+
+    describe("Loading nested templates", function () {
+        let template = DataTemplates.getTemplate("parentTemplate");
+        let childTemp = DataTemplates.getTemplate("childTemplate");
+        it(`'parentTemplate' should have been loaded`, function () {
+            expect(template).to.exist;
+        });
+
+        it(`'childTemplate' should have been loaded`, function () {
+            expect(childTemp).to.exist;
+        });
+    });
 });

@@ -14,6 +14,13 @@
         <p>Test Template</p>
     </div>
 </template>
+<template data-template="parentTemplate">
+    <ul>
+        <template data-template="childTemplate">
+            <li>Child Item</li>
+        </template>
+    </ul>
+</template>
 <div id="mocha"></div>
 <script src="../node_modules/mocha/mocha.js"></script>
 <script src="../node_modules/chai/chai.js"></script>

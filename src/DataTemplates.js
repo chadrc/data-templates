@@ -9,15 +9,8 @@ class DataTemplates {
 
     static onWindowLoad() {
         // Inline Templates
-        let htmlTemplates = document.querySelectorAll("template[data-template]");
+        DataTemplates.loadTemplates(document);
         let importTemplates = document.querySelectorAll("link[data-template]");
-        for (let temp of htmlTemplates) {
-            DataTemplates.store.push(temp.content);
-            let name = temp.dataset.template;
-            if (name) {
-                DataTemplates.store[name] = temp.content;
-            }
-        }
 
         for (let temp of importTemplates) {
             DataTemplates.store.push(temp.import);
@@ -28,6 +21,18 @@ class DataTemplates {
                     DataTemplates.store[name] = temp.import.body.children[0];
                 }
             }
+        }
+    }
+
+    static loadTemplates(root) {
+        let htmlTemplates = root.querySelectorAll("template[data-template]");
+        for (let temp of htmlTemplates) {
+            DataTemplates.store.push(temp.content);
+            let name = temp.dataset.template;
+            if (name) {
+                DataTemplates.store[name] = temp.content;
+            }
+            DataTemplates.loadTemplates(temp.content);
         }
     }
 
