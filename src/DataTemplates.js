@@ -20,7 +20,6 @@ class DataTemplates {
                     // Get child of html element that was generated for the template
                     DataTemplates.store[name] = temp.import.body.children[0];
                 }
-                console.dir(temp.import);
                 DataTemplates.loadTemplates(temp.import);
             }
         }
