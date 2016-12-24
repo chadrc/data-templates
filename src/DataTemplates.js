@@ -12,10 +12,10 @@ class DataTemplates {
         let htmlTemplates = document.querySelectorAll("template[data-template]");
         let importTemplates = document.querySelectorAll("link[data-template]");
         for (let temp of htmlTemplates) {
-            DataTemplates.store.push(temp);
+            DataTemplates.store.push(temp.content);
             let name = temp.dataset.template;
             if (name) {
-                DataTemplates.store[name] = temp;
+                DataTemplates.store[name] = temp.content;
             }
         }
 
