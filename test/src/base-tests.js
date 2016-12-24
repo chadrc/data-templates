@@ -10,4 +10,11 @@ describe("Templates", function () {
            expect(template).to.exist;
        });
     });
+
+    describe("Load html import template", function () {
+       let template = DataTemplates.getTemplate("importTemplate");
+        it(`HTML import template in mocha.html should have been loaded and stored.`, function () {
+            expect(template).to.exist;
+        });
+    });
 });

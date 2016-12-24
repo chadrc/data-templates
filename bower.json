@@ -1,0 +1,25 @@
+{
+  "name": "data-templates",
+  "description": "\"Simple library to import html templats into js objects and from servers.\"",
+  "main": "index.js",
+  "authors": [
+    "Chad Collins"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "library",
+    "templates",
+    "ajax"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "webcomponentsjs": "^0.7.23"
+  }
+}

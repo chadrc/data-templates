@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Data Templates Tests</title>
-    <script src="../node_modules/babel-polyfill/dist/polyfill.min.js"></script>
+    <script src="../bower_components/webcomponentsjs/HTMLImports.min.js"></script>
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
     <link rel="stylesheet" href="../node_modules/mocha/mocha.css" />
+    <link rel="import" data-template="importTemplate" href="importTemplate.html" >
 </head>
 <body>
 <template data-template="testTemplate">
@@ -25,11 +26,16 @@
 <script>
     // Load scripts after window load because data templates
     // finishes loading at that time
-    window.addEventListener('load', function () {
+    let callback = () => {
         jQuery.getScript("build/base-tests.js", function () {
             mocha.run();
         });
-    });
+    };
+    if (DataTemplates.importsSupported) {
+        window.addEventListener('load', callback);
+    } else {
+        window.addEventListener('HTMLImportsLoaded', callback);
+    }
 </script>
 </body>
 </html>
