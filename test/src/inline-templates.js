@@ -24,7 +24,7 @@ describe("Inline Templates", function () {
 
         it(`Grandchild's innerHTML should equal 'Test Template'`, function () {
             expect(clone.children[0].children[0].innerHTML).to.deep.equal("Test Template");
-        })
+        });
     });
 
     describe("Loading Nested", function () {
@@ -56,6 +56,6 @@ describe("Inline Templates", function () {
 
         it(`child root element's innerHTML should equal 'Child Item'`, function () {
             expect(childClone.children[0].innerHTML).to.deep.equal("Child Item");
-        })
+        });
     });
 });
