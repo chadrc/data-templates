@@ -28,6 +28,11 @@ class DataTemplates {
         }
     }
 
+    static clone(name) {
+        let template = DataTemplates.getTemplate(name);
+        return template.cloneNode(true);
+    }
+
     static get importsSupported() {
         return 'import' in document.createElement('link');
     }
