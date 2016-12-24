@@ -33,4 +33,16 @@ describe('Imported Templates', function () {
             expect(clone.children[1].innerHTML).to.deep.equal("This template was loaded as an html import.");
         });
     });
+
+    describe("Loading Nested", function () {
+        let template1 = DataTemplates.getTemplate("template1");
+        let template2 = DataTemplates.getTemplate("template2");
+        it(`template1 should exist`, function () {
+            expect(template1).to.exist;
+        });
+
+        it(`template2 should exist`, function () {
+            expect(template2).to.exist;
+        });
+    });
 });

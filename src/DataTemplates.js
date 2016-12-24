@@ -13,13 +13,15 @@ class DataTemplates {
         let importTemplates = document.querySelectorAll("link[data-template]");
 
         for (let temp of importTemplates) {
-            DataTemplates.store.push(temp.import);
-            let name = temp.dataset.template;
-            if (name) {
-                if (temp.import) {
+            if (temp.import) {
+                DataTemplates.store.push(temp.import);
+                let name = temp.dataset.template;
+                if (name) {
                     // Get child of html element that was generated for the template
                     DataTemplates.store[name] = temp.import.body.children[0];
                 }
+                console.dir(temp.import);
+                DataTemplates.loadTemplates(temp.import);
             }
         }
     }
