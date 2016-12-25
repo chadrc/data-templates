@@ -5,7 +5,7 @@
 describe("Inline Templates", function () {
 
     describe("Load", function () {
-        let template = DataTemplates.getTemplate("testTemplate");
+        let template = DataTemplates.get("testTemplate");
         it(`Template in mocha.html should have been loaded and stored.`, function () {
             expect(template).to.exist;
         });
@@ -28,8 +28,8 @@ describe("Inline Templates", function () {
     });
 
     describe("Loading Nested", function () {
-        let template = DataTemplates.getTemplate("parentTemplate");
-        let childTemp = DataTemplates.getTemplate("childTemplate");
+        let template = DataTemplates.get("parentTemplate");
+        let childTemp = DataTemplates.get("childTemplate");
         it(`'parentTemplate' should have been loaded`, function () {
             expect(template).to.exist;
         });

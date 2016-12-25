@@ -4,7 +4,7 @@
 
 describe('Imported Templates', function () {
     describe("Load", function () {
-        let template = DataTemplates.getTemplate("importTemplate");
+        let template = DataTemplates.get("importTemplate");
         it(`HTML import template in mocha.html should have been loaded and stored.`, function () {
             expect(template).to.exist;
         });
@@ -35,8 +35,8 @@ describe('Imported Templates', function () {
     });
 
     describe("Loading Nested", function () {
-        let template1 = DataTemplates.getTemplate("template1");
-        let template2 = DataTemplates.getTemplate("template2");
+        let template1 = DataTemplates.get("template1");
+        let template2 = DataTemplates.get("template2");
         it(`template1 should exist`, function () {
             expect(template1).to.exist;
         });

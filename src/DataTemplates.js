@@ -3,12 +3,12 @@
  */
 
 class DataTemplates {
-    static getTemplate(name) {
+    static get(name) {
         return DataTemplates.store[name];
     }
 
     static clone(name) {
-        let template = DataTemplates.getTemplate(name);
+        let template = DataTemplates.get(name);
         return template ? template.cloneNode(true) : null;
     }
 
