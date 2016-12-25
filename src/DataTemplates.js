@@ -17,9 +17,12 @@ class DataTemplates {
     }
 
     static onWindowLoad() {
-        // Inline Templates
         let namespace = DataTemplates.store;
+
+        // Get data from inline templates
         DataTemplates.loadTemplates(document, namespace);
+
+        // Get data from html imports
         let importTemplates = document.querySelectorAll("link[rel='import']");
         for (let temp of importTemplates) {
             if (temp.import) {
