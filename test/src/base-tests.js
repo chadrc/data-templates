@@ -3,7 +3,6 @@
  */
 
 describe("Common", function () {
-
     describe("Get non-existent template", function () {
         let template = DataTemplates.getTemplate("non-existent-template");
         it(`Retrieved template should not exists`, function () {
@@ -16,5 +15,13 @@ describe("Common", function () {
         it(`Clone should not exist`, function () {
             expect(clone).to.not.exist;
         });
+    });
+
+    describe("Namespaced templates", function () {
+        let template = DataTemplates.getTemplate("templateNamespace").namespacedTemplate;
+
+        it(`Namespaced template should exist`, function () {
+            expect(template).to.exist;
+        })
     });
 });
