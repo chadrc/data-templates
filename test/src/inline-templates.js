@@ -58,4 +58,20 @@ describe("Inline Templates", function () {
             expect(childClone.children[0].innerHTML).to.deep.equal("Child Item");
         });
     });
+
+    describe("Render inline template", function () {
+        let renderParent = document.getElementById("testRender");
+
+        it(`Root element should be a 'div' element`, function () {
+            expect(renderParent.children[0].tagName).to.deep.equal("DIV");
+        });
+
+        it(`Grandchild element should be a 'p' element`, function () {
+            expect(renderParent.children[0].children[0].tagName).to.deep.equal("P");
+        });
+
+        it(`Grandchild's innerHTML should equal 'Test Template'`, function () {
+            expect(renderParent.children[0].children[0].innerHTML).to.deep.equal("Test Template");
+        });
+    });
 });

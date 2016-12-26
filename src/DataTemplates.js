@@ -31,6 +31,17 @@ class DataTemplates {
                 DataTemplates.loadTemplates(temp.import, namespace);
             }
         }
+
+        let renderParents = document.querySelectorAll("*[data-template]");
+        for (let ele of renderParents) {
+            if (ele.tagName !== "TEMPLATE") {
+                let templateName = ele.dataset.template;
+                if (DataTemplates.get(templateName)) {
+                    let clone = DataTemplates.clone(templateName);
+                    ele.appendChild(clone);
+                }
+            }
+        }
     }
 
     static makeNamespace(base, newName) {
