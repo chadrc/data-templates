@@ -16,7 +16,7 @@ class DataTemplates {
         return 'import' in document.createElement('link');
     }
 
-    static onWindowLoad() {
+    static storeTemplates() {
         let namespace = DataTemplates.store;
 
         // Get data from inline templates
@@ -32,7 +32,9 @@ class DataTemplates {
             }
         }
 
-        DataTemplates.render(document);
+        if (DataTemplates.autoLoad) {
+            DataTemplates.render(document);
+        }
     }
 
     static render(base) {
@@ -79,9 +81,4 @@ class DataTemplates {
     }
 }
 DataTemplates.store = [];
-
-if (DataTemplates.importsSupported) {
-    window.addEventListener('load', DataTemplates.onWindowLoad);
-} else {
-    window.addEventListener('HTMLImportsLoaded', DataTemplates.onWindowLoad);
-}
+DataTemplates.autoLoad = false;

@@ -40,6 +40,8 @@
     // Load scripts after window load because data templates
     // finishes loading at that time
     let callback = () => {
+        DataTemplates.autoLoad = true;
+        DataTemplates.storeTemplates();
         jQuery.getScript("build/base-tests.js", function () {
             jQuery.getScript("build/inline-templates.js", function () {
                 jQuery.getScript("build/imported-templates.js", function () {
