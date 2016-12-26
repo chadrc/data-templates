@@ -74,4 +74,32 @@ describe("Inline Templates", function () {
             expect(renderParent.children[0].children[0].innerHTML).to.deep.equal("Test Template");
         });
     });
+
+    describe("Nested render of inline templates", function () {
+        let renderParent = document.getElementById("nestedTestRender");
+
+        it(`Root element should be a 'div' element`, function () {
+            expect(renderParent.children[0].tagName).to.deep.equal("DIV");
+        });
+
+        it(`First grandchild element should be a 'h1' element`, function () {
+            expect(renderParent.children[0].children[0].tagName).to.deep.equal("H1");
+        });
+
+        it(`Second grandchild element should be a 'div' element`, function () {
+            expect(renderParent.children[0].children[1].tagName).to.deep.equal("DIV");
+        });
+
+        it(`Second grandchild' first child should be a 'div' element`, function () {
+            expect(renderParent.children[0].children[1].children[0].tagName).to.deep.equal("DIV");
+        });
+
+        it(`Second grandchild' first child's first child should be a 'p' element`, function () {
+            expect(renderParent.children[0].children[1].children[0].children[0].tagName).to.deep.equal("P");
+        });
+
+        it(`Second grandchild's first child's first child's innerHTML should equal 'Test Template'`, function () {
+            expect(renderParent.children[0].children[1].children[0].children[0].innerHTML).to.deep.equal("Test Template");
+        });
+    });
 });

@@ -32,12 +32,17 @@ class DataTemplates {
             }
         }
 
-        let renderParents = document.querySelectorAll("*[data-template]");
+        DataTemplates.render(document);
+    }
+
+    static render(base) {
+        let renderParents = base.querySelectorAll("*[data-template]");
         for (let ele of renderParents) {
             if (ele.tagName !== "TEMPLATE") {
                 let templateName = ele.dataset.template;
                 if (DataTemplates.get(templateName)) {
                     let clone = DataTemplates.clone(templateName);
+                    DataTemplates.render(clone);
                     ele.appendChild(clone);
                 }
             }
